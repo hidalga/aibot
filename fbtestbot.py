@@ -10,7 +10,7 @@ app = Flask(__name__)
 VERIFY_TOKEN = "EAAFRcKWiKCEBAFXZAgRg4qbSGMZC5rfOMGasOwL7o32meF725gMYnpCh5CWYtV57MMFvANASZAnbVPTK0EMnZBXcrjtRzNlTUZA6Dm1sLCTYwHlO6UKLsFASGnLCJYITOMYGhvZCjPMRNklgZAJIVc9hnnhZBnO9YOU3AddXZCoJvA5421ob3EKdV"
 @app.route('/', methods=['GET'])
 def handle_verification():
-    if request.args.get('hub.verify_token', '') == VERIFY_TOKEN:
+    if request.args.get("hub.verify_token") == VERIFY_TOKEN:
         return request.args.get('hub.challenge', 200)
     else:
         return "Error de conexion"
